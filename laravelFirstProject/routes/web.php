@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\DemoController;
 use App\Http\Controllers\SingleActionController;
 use App\Http\Controllers\ResourceController;
+use App\Http\Controllers\RegistrationController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -14,6 +15,11 @@ use App\Http\Controllers\ResourceController;
 | contains the "web" middleware group. Now create something great!
 |
 */
+
+Route::get('/register', [RegistrationController::class, 'index']);
+
+Route::post('/register', [RegistrationController::class,'register']);
+
 Route::get('/', [DemoController::class, 'index']);
 
 Route::get('/about', [DemoController::class, 'about']);
