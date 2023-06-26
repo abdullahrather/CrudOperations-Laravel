@@ -28,7 +28,12 @@ class CustomerController extends Controller
         $customer = new Customer;
         $customer->name = $request['name'];
         $customer->email = $request['email'];
-        $customer->name = $request['name'];
-        $customer->name = $request['name'];
+        $customer->gender = $request['gender'];
+        $customer->address = $request['address'];
+        $customer->country = $request['country'];
+        $customer->state = $request['state'];
+        $customer->DOB = $request['DOB'];
+        $customer->password = password_hash($request['password'],(PASSWORD_DEFAULT));
+        $customer->save();
     }
 }
