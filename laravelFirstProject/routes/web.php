@@ -4,7 +4,6 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\DemoController;
 use App\Http\Controllers\SingleActionController;
 use App\Http\Controllers\ResourceController;
-
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -15,7 +14,6 @@ use App\Http\Controllers\ResourceController;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
 Route::get('/', [DemoController::class, 'index']);
 
 Route::get('/about', [DemoController::class, 'about']);
@@ -23,6 +21,7 @@ Route::get('/about', [DemoController::class, 'about']);
 Route::get('/courses', SingleActionController::class);
 
 Route::resource('/resource', ResourceController::class);
+
 
 // Route::get('/about', function () {
 //     return view('about');

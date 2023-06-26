@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use PhpParser\Node\Stmt\Echo_;
 
 class ResourceController extends Controller
 {
