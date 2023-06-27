@@ -75,35 +75,37 @@
             </div>
             <div class="form-group">
                 <label for="country">Country</label>
-                <input type="text" name="country" id="country" class="form-control">
+                <input type="text" name="country" id="country" class="form-control" value="{{ old('country') }}">
+
             </div>
             <div class="form-group">
                 <label for="state">State</label>
-                <input type="text" name="state" id="state" class="form-control">
+                <input type="text" name="state" id="state" class="form-control" value="{{ old('state') }}">
             </div>
             <div class="form-group">
                 <label for="address">Address</label>
-                <textarea class="form-control" name="address" id="address" rows="3"></textarea>
+                <textarea class="form-control" name="address" id="address" rows="3">{{ old('address') }}</textarea>
             </div>
             <div class="form-group row">
                 <div class="col-md-6">
                     <label for="gender">Gender</label>
                     <div class="form-check">
                         <label class="form-check-label">
-                            <input type="radio" class="form-check-input" name="gender" id="male" value="M">
+                            <input type="radio" class="form-check-input" name="gender" id="male" value="M" {{ old('gender') === 'M' ? 'checked' : '' }}>
                             Male
                         </label>
                     </div>
                     <div class="form-check">
                         <label class="form-check-label">
-                            <input type="radio" class="form-check-input" name="gender" id="female" value="F">
+                            <input type="radio" class="form-check-input" name="gender" id="female" value="F" {{ old('gender') === 'F' ? 'checked' : '' }}>
                             Female
                         </label>
                     </div>
                 </div>
                 <div class="col-md-6">
                     <label for="dob">Date of Birth</label>
-                    <input type="date" name="DOB" id="DOB" class="form-control">
+                    <input type="date" name="DOB" id="DOB" class="form-control"
+                        value="{{ old('DOB') }}">
                 </div>
             </div>
             <button class="btn btn-primary">
