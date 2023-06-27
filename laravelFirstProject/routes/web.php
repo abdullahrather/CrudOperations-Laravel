@@ -17,6 +17,7 @@ use App\Models\Customer;
 | contains the "web" middleware group. Now create something great!
 |
 */
+Route::get('/customer/view',[CustomerController::class,'view']);
 
 Route::get('/customer', [CustomerController::class, 'index']);
 Route::post('/customer', [CustomerController::class, 'store']);

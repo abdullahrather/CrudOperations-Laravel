@@ -16,15 +16,14 @@ class CustomerController extends Controller
     {
         $request->validate(
             [
-                'name'=>'required',
-                'email'=>'required',
-                'password'=>'required|confirmed',
-                'password_confirmation'=>'required'                
+                'name' => 'required',
+                'email' => 'required',
+                'password' => 'required|confirmed',
+                'password_confirmation' => 'required'
             ]
         );
-        echo "<pre>";
-        print_r($request->all());
 
+        //Insert Query
         $customer = new Customer;
         $customer->name = $request['name'];
         $customer->email = $request['email'];
@@ -33,7 +32,16 @@ class CustomerController extends Controller
         $customer->country = $request['country'];
         $customer->state = $request['state'];
         $customer->DOB = $request['DOB'];
-        $customer->password = password_hash($request['password'],(PASSWORD_DEFAULT));
+        $customer->password = password_hash($request['password'], (PASSWORD_DEFAULT));
         $customer->save();
+
+        return redirect('/customer/view');
+    }
+
+    public function view()
+    {
+        $customers=Customer::all();
+        $data=compact('customers');
+        return view('customer-view')->with($data);
     }
 }
