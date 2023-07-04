@@ -36,7 +36,7 @@
                 <div class="col-md-6">
                     <label for="name">Name</label>
                     <input type="text" name="name" id="name" class="form-control"
-                        value="{{ $customer->name }} {{ old('name') }}">
+                        value="{{ trim($customer->name) ?: old('name') }}">
                     <span class="text-danger">
                         @error('name')
                             {{ $message }}
@@ -46,7 +46,7 @@
                 <div class="col-md-6">
                     <label for="email">Email</label>
                     <input type="email" name="email" id="email" class="form-control"
-                        value="{{ $customer->email }} {{ old('email') }}">
+                        value="{{ trim($customer->email) ?: old('email') }}">
                     <span class="text-danger">
                         @error('email')
                             {{ $message }}
@@ -77,17 +77,17 @@
             <div class="form-group">
                 <label for="country">Country</label>
                 <input type="text" name="country" id="country" class="form-control"
-                    value="{{$customer->country,old('country') }}">
+                    value="{{ trim($customer->country) ?: old('country') }}">
 
             </div>
             <div class="form-group">
                 <label for="state">State</label>
                 <input type="text" name="state" id="state" class="form-control"
-                    value="{{ $customer->state }} {{ old('state') }}">
+                    value="{{ trim($customer->state) ?: old('state') }}">
             </div>
             <div class="form-group">
                 <label for="address">Address</label>
-                <textarea class="form-control" name="address" id="address" rows="3">{{ $customer->address }} {{ old('address') }}</textarea>
+                <textarea class="form-control" name="address" id="address" rows="3">{{ trim($customer->country) ?: old('country') }}</textarea>
             </div>
             <div class="form-group row">
                 <div class="col-md-6">
@@ -95,16 +95,14 @@
                     <div class="form-check">
                         <label class="form-check-label">
                             <input type="radio" class="form-check-input" name="gender" id="male" value="M"
-                                {{ $customer->gender == 'M' ? 'checked' : '' }}
-                                {{ old('gender') === 'M' ? 'checked' : '' }}>
+                                {{ (trim($customer->gender == 'M' ? 'checked' : '') ?: old('gender') === 'M') ? 'checked' : '' }}>
                             Male
                         </label>
                     </div>
                     <div class="form-check">
                         <label class="form-check-label">
                             <input type="radio" class="form-check-input" name="gender" id="female" value="F"
-                                {{ $customer->gender == 'F' ? 'checked' : '' }}
-                                {{ old('gender') === 'F' ? 'checked' : '' }}>
+                                {{ (trim($customer->gender == 'F' ? 'checked' : '') ?: old('gender') === 'F') ? 'checked' : '' }}>
                             Female
                         </label>
                     </div>
@@ -112,7 +110,7 @@
                 <div class="col-md-6">
                     <label for="dob">Date of Birth</label>
                     <input type="date" name="DOB" id="DOB" class="form-control"
-                        value="{{ $customer->DOB }} {{ old('DOB') }}">
+                    value="{{ trim($customer->DOB) ?: old('DOB') }}">
                 </div>
             </div>
             <button class="btn btn-primary">
