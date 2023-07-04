@@ -27,15 +27,16 @@
 </head>
 
 <body>
-    <form action="{{ url('/') }}/customer" method="post">
+    @include('index')
+    <form action="{{ $url }}" method="post">
         @csrf
         <div class="container">
-            <h1 class="text-center">Registration</h1>
+            <h1 class="text-center">{{ $title }}</h1>
             <div class="form-group row">
                 <div class="col-md-6">
                     <label for="name">Name</label>
                     <input type="text" name="name" id="name" class="form-control"
-                        value="{{ old('name') }}">
+                        value="{{ $customer->name }} {{ old('name') }}">
                     <span class="text-danger">
                         @error('name')
                             {{ $message }}
@@ -45,7 +46,7 @@
                 <div class="col-md-6">
                     <label for="email">Email</label>
                     <input type="email" name="email" id="email" class="form-control"
-                        value="{{ old('email') }}">
+                        value="{{ $customer->email }} {{ old('email') }}">
                     <span class="text-danger">
                         @error('email')
                             {{ $message }}
@@ -75,29 +76,35 @@
             </div>
             <div class="form-group">
                 <label for="country">Country</label>
-                <input type="text" name="country" id="country" class="form-control" value="{{ old('country') }}">
+                <input type="text" name="country" id="country" class="form-control"
+                    value="{{$customer->country,old('country') }}">
 
             </div>
             <div class="form-group">
                 <label for="state">State</label>
-                <input type="text" name="state" id="state" class="form-control" value="{{ old('state') }}">
+                <input type="text" name="state" id="state" class="form-control"
+                    value="{{ $customer->state }} {{ old('state') }}">
             </div>
             <div class="form-group">
                 <label for="address">Address</label>
-                <textarea class="form-control" name="address" id="address" rows="3">{{ old('address') }}</textarea>
+                <textarea class="form-control" name="address" id="address" rows="3">{{ $customer->address }} {{ old('address') }}</textarea>
             </div>
             <div class="form-group row">
                 <div class="col-md-6">
                     <label for="gender">Gender</label>
                     <div class="form-check">
                         <label class="form-check-label">
-                            <input type="radio" class="form-check-input" name="gender" id="male" value="M" {{ old('gender') === 'M' ? 'checked' : '' }}>
+                            <input type="radio" class="form-check-input" name="gender" id="male" value="M"
+                                {{ $customer->gender == 'M' ? 'checked' : '' }}
+                                {{ old('gender') === 'M' ? 'checked' : '' }}>
                             Male
                         </label>
                     </div>
                     <div class="form-check">
                         <label class="form-check-label">
-                            <input type="radio" class="form-check-input" name="gender" id="female" value="F" {{ old('gender') === 'F' ? 'checked' : '' }}>
+                            <input type="radio" class="form-check-input" name="gender" id="female" value="F"
+                                {{ $customer->gender == 'F' ? 'checked' : '' }}
+                                {{ old('gender') === 'F' ? 'checked' : '' }}>
                             Female
                         </label>
                     </div>
@@ -105,7 +112,7 @@
                 <div class="col-md-6">
                     <label for="dob">Date of Birth</label>
                     <input type="date" name="DOB" id="DOB" class="form-control"
-                        value="{{ old('DOB') }}">
+                        value="{{ $customer->DOB }} {{ old('DOB') }}">
                 </div>
             </div>
             <button class="btn btn-primary">

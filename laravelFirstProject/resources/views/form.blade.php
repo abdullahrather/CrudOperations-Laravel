@@ -13,6 +13,7 @@
 </head>
 
 <body>
+    @include('index')
     <form action="{{ url('/') }}/register" method="post">
         @csrf
         <div class="container">

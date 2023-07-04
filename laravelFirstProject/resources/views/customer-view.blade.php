@@ -13,8 +13,12 @@
 </head>
 
 <body>
+    @include('index')
     <div class="container">
         <h1 class="text-center">Customer Records</h1>
+        <a href="{{ route('customer.create') }}">
+            <button class="btn btn-primary d-inline-block m-2 float-right">Add Record</button>
+        </a>
         <table class="table table-bordered table-inverse">
             <thead class="thead-inverse">
                 <tr>
@@ -26,6 +30,7 @@
                     <th>State</th>
                     <th>Date of Birth</th>
                     <th>Status</th>
+                    <th>Action</th>
                 </tr>
             </thead>
             <tbody>
@@ -46,10 +51,22 @@
                         <td>{{ $customer->DOB }}</td>
                         <td>
                             @if ($customer->status == '1')
-                                Active
+                                <a href="">
+                                    <span class="badge badge-success">Active</span>
+                                </a>
                             @else
-                                Inactive
+                                <a href="">
+                                    <span class="badge badge-danger">Inactive</span>
+                                </a>
                             @endif
+                        </td>
+                        <td>
+
+                            {{-- <a href="{{url('/customer/delete/')}}/{{$customer->id}}"><button class="btn btn-danger">Delete</button></a> --}}
+                            <a href="{{ route('customer.delete', ['id' => $customer->id]) }}"><button
+                                    class="btn btn-danger">Delete</button></a>
+                            <a href="{{ route('customer.edit', ['id' => $customer->id]) }}"><button
+                                    class="btn btn-secondary">Edit</button></a>
                         </td>
                     </tr>
                 @endforeach

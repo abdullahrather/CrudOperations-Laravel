@@ -9,7 +9,11 @@ class CustomerController extends Controller
 {
     public function index()
     {
-        return view('customer');
+        $url = url('/customer');
+        $customer=new Customer();
+        $title = "Registration";
+        $data = compact('url', 'title', 'customer');
+        return view('customer')->with($data);
     }
 
     public function store(Request $request)
@@ -43,5 +47,44 @@ class CustomerController extends Controller
         $customers = Customer::all();
         $data = compact('customers');
         return view('customer-view')->with($data);
+    }
+
+    //Delete Query
+    public function delete($id)
+    {
+        $customer = Customer::find($id);
+        if (!is_null($customer)) {
+            $customer->delete();
+        }
+        return redirect('customer/view');
+    }
+
+    public function edit($id)
+    {
+        $customer = Customer::find($id);
+        if (is_null($customer)) {
+            //not found
+            return redirect('customer/view');
+        } else {
+            $url = url('/customer/update') . "/" . $id;
+            $title = "Update";
+            $data = compact('customer', 'url', 'title');
+            return view('customer')->with($data);
+        }
+    }
+
+    public function update($id, Request $request)
+    {
+        $customer = Customer::find($id);
+        $customer->name = $request['name'];
+        $customer->email = $request['email'];
+        $customer->gender = $request['gender'];
+        $customer->address = $request['address'];
+        $customer->country = $request['country'];
+        $customer->state = $request['state'];
+        $customer->DOB = $request['DOB'];
+        $customer->save();
+
+        return redirect('customer/view');
     }
 }
