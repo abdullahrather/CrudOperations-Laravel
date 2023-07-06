@@ -10,7 +10,7 @@ class CustomerController extends Controller
     public function index()
     {
         $url = url('/customer');
-        $customer=new Customer();
+        $customer = new Customer();
         $title = "Registration";
         $data = compact('url', 'title', 'customer');
         return view('customer')->with($data);
