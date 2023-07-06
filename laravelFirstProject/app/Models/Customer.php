@@ -25,6 +25,6 @@ class Customer extends Model
 
     public function getDOBAttribute($value)
     {
-    return date("l, F d, Y", strtotime($value));
+        return date("l, F d, Y", strtotime($value));
     }
 }
