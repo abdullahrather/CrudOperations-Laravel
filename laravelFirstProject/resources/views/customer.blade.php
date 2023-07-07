@@ -110,7 +110,7 @@
                 <div class="col-md-6">
                     <label for="dob">Date of Birth</label>
                     <input type="date" name="DOB" id="DOB" class="form-control"
-                    value="{{ trim($customer->DOB) ?: old('DOB') }}">
+                        value="{{ trim($customer->DOB) ?: old('DOB') }}">
                 </div>
             </div>
             <button class="btn btn-primary">

@@ -7,6 +7,7 @@ use App\Http\Controllers\SingleActionController;
 use App\Http\Controllers\ResourceController;
 use App\Http\Controllers\RegistrationController;
 use App\Models\Customer;
+use Illuminate\Http\Request;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -18,13 +19,36 @@ use App\Models\Customer;
 |
 */
 
+Route::get('get-all-session', function () {
+    $session = session()->all();
+    p($session);
+});
+
+Route::get('set-session', function (Request $request) {
+    $request->session()->put('user_name', 'Abdullah Rather');
+    $request->session()->put('user_id', '12345');
+    $request->session()->put('user_email', "abd@xyz.com");
+    session()->flash('status', 'Active');
+    return redirect('get-all-session');
+});
+
+Route::get('destroy-session', function () {
+    session()->forget(['user_name', 'user_id']);
+    // $request->session()->forget('user_id');
+    return redirect('get-all-session');
+});
+
 Route::get('/', function () {
     return view('index');
 });
 
-Route::get('/customer/view', [CustomerController::class, 'view']);
+Route::get('/customer/view', [CustomerController::class, 'view'])->name('customer.view');;
 Route::get('/customer', [CustomerController::class, 'index'])->name('customer.create');
 Route::get('/customer/delete/{id}', [CustomerController::class, 'delete'])->name('customer.delete');
+Route::get('/customer/forceDelete/{id}', [CustomerController::class, 'force_delete'])->name('customer.force.delete');
+
+Route::get('/customer/restore/{id}', [CustomerController::class, 'restore'])->name('customer.restore');
+Route::get('/customer/trash', [customerController::class, 'trash'])->name('customer.trash');;
 Route::get('/customer/edit/{id}', [CustomerController::class, 'edit'])->name('customer.edit');
 Route::post('/customer/update/{id}', [CustomerController::class, 'update'])->name('customer.update');
 Route::post('/customer', [CustomerController::class, 'store']);

@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <title>Title</title>
+    <title>Customer Trash</title>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -16,14 +16,11 @@
     @include('index')
     <div class="container">
         <h1 class="text-center">Customer Records</h1>
-        <a href="{{ route('customer.create') }}">
-            <button class="btn btn-primary d-inline-block m-2 float-right">Add Record</button>
+        <a href="{{ route('customer.view') }}">
+            <button class="btn btn-primary d-inline-block m-2 float-right">Go to Customers</button>
         </a>
-        <a href="{{ route('customer.trash') }}">
-            <button class="btn btn-danger d-inline-block m-2 float-right">Go to Trash</button>
-        </a>
-        <table class="table table-bordered table-inverse">
-            <thead class="thead-inverse">
+        <table class="table table-bordered table-inverse table-responsive">
+            <thead class="thead-dark">
                 <tr>
                     <th>Name</th>
                     <th>Email</th>
@@ -66,10 +63,10 @@
                         <td>
 
                             {{-- <a href="{{url('/customer/delete/')}}/{{$customer->id}}"><button class="btn btn-danger">Delete</button></a> --}}
-                            <a href="{{ route('customer.delete', ['id' => $customer->id]) }}"><button
-                                    class="btn btn-danger">Trash</button></a>
-                            <a href="{{ route('customer.edit', ['id' => $customer->id]) }}"><button
-                                    class="btn btn-secondary">Edit</button></a>
+                            <a href="{{ route('customer.force.delete', ['id' => $customer->id]) }}"><button
+                                    class="btn btn-danger">Delete</button></a>
+                            <a href="{{ route('customer.restore', ['id' => $customer->id]) }}"><button
+                                    class="btn btn-secondary">Restore</button></a>
                         </td>
                     </tr>
                 @endforeach
