@@ -19,7 +19,7 @@
         <a href="{{ route('customer.view') }}">
             <button class="btn btn-primary d-inline-block m-2 float-right">Go to Customers</button>
         </a>
-        <table class="table table-bordered table-inverse table-responsive">
+        <table class="table table-bordered table-inverse">
             <thead class="thead-dark">
                 <tr>
                     <th>Name</th>

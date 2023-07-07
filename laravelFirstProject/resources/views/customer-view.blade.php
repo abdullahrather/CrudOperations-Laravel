@@ -23,7 +23,7 @@
             <button class="btn btn-danger d-inline-block m-2 float-right">Go to Trash</button>
         </a>
         <table class="table table-bordered table-inverse">
-            <thead class="thead-inverse">
+            <thead class="thead-dark">
                 <tr>
                     <th>Name</th>
                     <th>Email</th>
