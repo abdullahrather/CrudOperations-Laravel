@@ -76,10 +76,21 @@
             </div>
             <div class="form-group">
                 <label for="country">Country</label>
-                <input type="text" name="country" id="country" class="form-control"
-                    value="{{ trim($customer->country) ?: old('country') }}">
-
+                <select name="country" id="country" class="form-control">
+                    <option value="">Select Country</option>
+                    @foreach ($countries as $country)
+                        <option value="{{ $country }}"
+                            {{ trim($customer->country) == $country || old('country') == $country ? 'selected' : '' }}>
+                            {{ $country }}</option>
+                    @endforeach
+                </select>
+                <span class="text-danger">
+                    @error('country')
+                        {{ $message }}
+                    @enderror
+                </span>
             </div>
+
             <div class="form-group">
                 <label for="state">State</label>
                 <input type="text" name="state" id="state" class="form-control"
