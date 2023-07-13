@@ -8,6 +8,11 @@ use App\Http\Controllers\ResourceController;
 use App\Http\Controllers\RegistrationController;
 use App\Models\Customer;
 use Illuminate\Http\Request;
+use App\Http\Controllers\frontend\AboutController;
+use App\Http\Controllers\frontend\HomeController;
+use App\Http\Controllers\frontend\PortfolioController;
+use App\Http\Controllers\frontend\ServicesController;
+use App\Http\Controllers\frontend\TeamController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -18,6 +23,12 @@ use Illuminate\Http\Request;
 | contains the "web" middleware group. Now create something great!
 |
 */
+
+Route::get('/', [HomeController::class, 'index']);
+Route::get('/about-us', [AboutController::class, 'index']);
+Route::get('/portfolio', [PortfolioController::class, 'index']);
+Route::get('/services', [ServicesController::class, 'index']);
+Route::get('/team', [TeamController::class, 'index']);
 
 Route::get('get-all-session', function () {
     $session = session()->all();
@@ -38,9 +49,9 @@ Route::get('destroy-session', function () {
     return redirect('get-all-session');
 });
 
-Route::get('/', function () {
-    return view('index');
-});
+// Route::get('/', function () {
+//     return view('index');
+// });
 
 Route::get('/customer/view', [CustomerController::class, 'view'])->name('customer.view');;
 Route::get('/customer', [CustomerController::class, 'index'])->name('customer.create');
