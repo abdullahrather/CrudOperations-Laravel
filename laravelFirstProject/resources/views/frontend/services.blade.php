@@ -1,7 +1,13 @@
 @extends('frontend.layouts.main')
 @section('main-container')
+    @push('Title')
+        <title>Services</title>
+    @endpush
+    @push('li')
+        <li>Services</li>
+    @endpush
     <!-- ======= Services Section ======= -->
-    <section id="services" class="services section-bg m-5">
+    <section id="services" class="services section-bg">
         <div class="container" data-aos="fade-up">
 
             <div class="section-title">

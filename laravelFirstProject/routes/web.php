@@ -24,7 +24,7 @@ use App\Http\Controllers\frontend\TeamController;
 |
 */
 
-Route::get('/', [HomeController::class, 'index']);
+Route::get('/', [HomeController::class, 'index'])->name('index');
 Route::get('/about-us', [AboutController::class, 'index']);
 Route::get('/portfolio', [PortfolioController::class, 'index']);
 Route::get('/services', [ServicesController::class, 'index']);

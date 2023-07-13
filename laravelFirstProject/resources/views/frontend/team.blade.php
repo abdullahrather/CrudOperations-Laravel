@@ -1,7 +1,13 @@
 @extends('frontend.layouts.main')
 @section('main-container')
+    @push('Title')
+        <title>Team</title>
+    @endpush
+    @push('li')
+        <li>Team</li>
+    @endpush
     <!-- ======= Team Section ======= -->
-    <section id="team" class="team section-bg m-5">
+    <section id="team" class="team section-bg">
         <div class="container" data-aos="fade-up">
 
             <div class="section-title">
@@ -15,7 +21,7 @@
 
                 <div class="col-lg-6" data-aos="zoom-in" data-aos-delay="100">
                     <div class="member d-flex align-items-start">
-                        <div class="pic"><img src="assets/img/team/team-1.jpg" class="img-fluid" alt="">
+                        <div class="pic"><img src="{{url('frontend/assets/img/team/team-1.jpg')}}" class="img-fluid" alt="">
                         </div>
                         <div class="member-info">
                             <h4>Walter White</h4>
@@ -33,7 +39,7 @@
 
                 <div class="col-lg-6 mt-4 mt-lg-0" data-aos="zoom-in" data-aos-delay="200">
                     <div class="member d-flex align-items-start">
-                        <div class="pic"><img src="assets/img/team/team-2.jpg" class="img-fluid" alt="">
+                        <div class="pic"><img src="{{url('frontend/assets/img/team/team-2.jpg')}}" class="img-fluid" alt="">
                         </div>
                         <div class="member-info">
                             <h4>Sarah Jhonson</h4>
@@ -51,7 +57,7 @@
 
                 <div class="col-lg-6 mt-4" data-aos="zoom-in" data-aos-delay="300">
                     <div class="member d-flex align-items-start">
-                        <div class="pic"><img src="assets/img/team/team-3.jpg" class="img-fluid" alt="">
+                        <div class="pic"><img src="{{url('frontend/assets/img/team/team-3.jpg')}}" class="img-fluid" alt="">
                         </div>
                         <div class="member-info">
                             <h4>William Anderson</h4>
@@ -69,7 +75,7 @@
 
                 <div class="col-lg-6 mt-4" data-aos="zoom-in" data-aos-delay="400">
                     <div class="member d-flex align-items-start">
-                        <div class="pic"><img src="assets/img/team/team-4.jpg" class="img-fluid" alt="">
+                        <div class="pic"><img src="{{url('frontend/assets/img/team/team-4.jpg')}}" class="img-fluid" alt="">
                         </div>
                         <div class="member-info">
                             <h4>Amanda Jepson</h4>

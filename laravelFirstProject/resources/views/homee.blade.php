@@ -1,10 +1,17 @@
-@extends('layouts.main')
+@extends('frontend.layouts.main')
 @push('Title')
-<title>Home</title>    
+    <title>Resources</title>
 @endpush
-@include('index')
-@section('main-section')
-    <h1 class="text-center">
-        Home Page
-    </h1>
+@push('li')
+    <li>Resources</li>
+@endpush
+@section('main-container')
+    <section id="contact" class="contact">
+        <div class="container" data-aos="fade-up">
+            <div class="section-title">
+
+                <h1>Resource Page</h1>
+            </div>
+        </div>
+    </section>
 @endsection

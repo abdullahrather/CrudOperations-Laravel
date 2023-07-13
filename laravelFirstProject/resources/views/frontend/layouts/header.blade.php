@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-    <title>Arsha Bootstrap Template - Index</title>
+    @stack('Title')
     <meta content="" name="description">
     <meta content="" name="keywords">
 
@@ -49,37 +49,24 @@
     <header id="header" class="fixed-top ">
         <div class="container d-flex align-items-center">
 
-            <h1 class="logo me-auto"><a href="{{ url('/') }}">Laravel Project</a></h1>
+            <h1 class="logo me-auto"><a href="{{ url('/') }}">Project</a></h1>
             <!-- Uncomment below if you prefer to use an image logo -->
             <!-- <a href="index.html" class="logo me-auto"><img src="{{ url('frontend/assets/img/logo.png') }}" alt="" class="img-fluid"></a>-->
 
             <nav id="navbar" class="navbar">
                 <ul>
-                    <li><a class="nav-link scrollto active" href="{{ url('/') }}">Home</a></li>
-                    <li><a class="nav-link scrollto" href="{{ url('/about-us') }}">About</a></li>
-                    <li><a class="nav-link scrollto" href="{{ url('/services') }}">Services</a></li>
-                    <li><a class="nav-link   scrollto" href="{{ url('/portfolio') }}">Portfolio</a></li>
-                    <li><a class="nav-link scrollto" href="{{ url('/team') }}">Team</a></li>
-                    <li class="dropdown"><a href="#"><span>Drop Down</span> <i class="bi bi-chevron-down"></i></a>
+                    <li><a class="{{ Request::is('/') ? 'active' : '' }}" class="nav-link scrollto" href="{{ url('/') }}">Home</a></li>
+                    <li><a class="{{ Request::is('about-us') ? 'active' : '' }}" class="nav-link scrollto" href="{{ url('/about-us') }}">About</a></li>
+                    <li><a class="{{ Request::is('services') ? 'active' : '' }}" class="nav-link scrollto" href="{{ url('/services') }}">Services</a></li>
+                    <li><a class="{{ Request::is('portfolio') ? 'active' : '' }}" class="nav-link   scrollto" href="{{ url('/portfolio') }}">Portfolio</a></li>
+                    <li><a class="{{ Request::is('team') ? 'active' : '' }}" class="nav-link scrollto" href="{{ url('/team') }}">Team</a></li>
+                    <li class="dropdown"><a href="#"><span>Customers</span> <i class="bi bi-chevron-down"></i></a>
                         <ul>
-                            <li><a href="#">Drop Down 1</a></li>
-                            <li class="dropdown"><a href="#"><span>Deep Drop Down</span> <i
-                                        class="bi bi-chevron-right"></i></a>
-                                <ul>
-                                    <li><a href="#">Deep Drop Down 1</a></li>
-                                    <li><a href="#">Deep Drop Down 2</a></li>
-                                    <li><a href="#">Deep Drop Down 3</a></li>
-                                    <li><a href="#">Deep Drop Down 4</a></li>
-                                    <li><a href="#">Deep Drop Down 5</a></li>
-                                </ul>
-                            </li>
-                            <li><a href="#">Drop Down 2</a></li>
-                            <li><a href="#">Drop Down 3</a></li>
-                            <li><a href="#">Drop Down 4</a></li>
+                            <li><a href="{{ url('/customer/view') }}">Customer Records</a></li>
+                            <li><a href="{{ route('customer.create') }}">Customer Add</a></li>
                         </ul>
                     </li>
-                    <li><a class="nav-link scrollto" href="{{ url('/customer/view') }}">Contact</a></li>
-                    <li><a class="getstarted scrollto" href="#about">Get Started</a></li>
+                    <li><a class="getstarted scrollto" href="#">Button</a></li>
                 </ul>
                 <i class="bi bi-list mobile-nav-toggle"></i>
             </nav><!-- .navbar -->

@@ -1,7 +1,19 @@
 @extends('frontend.layouts.main')
 @section('main-container')
-    <section id="contact" class="m-5 contact">
+    @push('Title')
+        <title>Customer Add</title>
+    @endpush
+    @push('li')
+        <li>Customer Add</li>
+    @endpush
+    <section id="contact" class="scontact">
         <div class="container" data-aos="fade-up">
+            <div class="section-title">
+                <h2>Customers</h2>
+                <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint
+                    consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia
+                    fugiat sit in iste officiis commodi quidem hic quas.</p>
+            </div>
             <div class="row">
                 <div class="col-lg-5 d-flex align-items-stretch">
                     <div class="info">
@@ -107,7 +119,7 @@
                             </div>
                             <div class="form-group">
                                 <label for="address">Address</label>
-                                <textarea class="form-control" name="address" id="address" rows="3">{{ trim($customer->country) ?: old('country') }}</textarea>
+                                <textarea class="form-control" name="address" id="address" rows="3">{{ trim($customer->address) ?: old('address') }}</textarea>
                             </div>
                             <div class="form-group row">
                                 <div class="col-md-6">

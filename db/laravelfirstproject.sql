@@ -1,10 +1,10 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.0
+-- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: Jun 26, 2023 at 04:28 PM
--- Server version: 8.0.31
+-- Generation Time: Jul 13, 2023 at 11:26 PM
+-- Server version: 8.0.33
 -- PHP Version: 8.2.0
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
@@ -42,8 +42,20 @@ CREATE TABLE IF NOT EXISTS `customers` (
   `points` int NOT NULL DEFAULT '0',
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
+  `deleted_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_unicode_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_unicode_ci;
+
+--
+-- Dumping data for table `customers`
+--
+
+INSERT INTO `customers` (`id`, `name`, `email`, `gender`, `address`, `country`, `state`, `DOB`, `password`, `status`, `points`, `created_at`, `updated_at`, `deleted_at`) VALUES
+(1, 'Abdullah Rather', 'abdullahrather19@gmail.com', 'M', 'Pakistan', 'Pakistan', 'karachi', '2023-07-01', '$2y$10$X7kXscT.v/j/lyYY0lcoY.FizO9JuBZnrZE4P7DqhTp3LnBKVqK/e', 1, 0, '2023-07-12 11:53:39', '2023-07-13 18:08:29', NULL),
+(2, 'Abdullah R', 'abdullah@test.com', 'M', 'House 1', 'Pakistan', 'karachi', '2023-07-14', '$2y$10$ujDQMX4QYLF5SEvfT15eReWrVNCA6onboEDt8LA/NR4jPFyjEoTuu', 1, 0, '2023-07-12 20:16:18', '2023-07-13 18:08:30', NULL),
+(3, 'Abdullah R.', 'abdullahrather19@gmail.com', 'M', 'Hno5', 'Pakistan', 'karachi', '2023-06-14', '$2y$10$HjMjcZ6UjMpDOcMCQN6DxetdhnU24Vl1EwJvMmrlA6vJF0WF8rjzi', 1, 0, '2023-07-12 20:26:04', '2023-07-13 18:08:32', NULL),
+(4, 'Rather', 'abdullahrather19@gmail.com', 'M', 'abc', 'Pakistan', 'karachi', '2023-07-31', '$2y$10$KZgMaZyAriIgpF2Y2UAh/.LTKVTilk1KWYGNq2NzPMD62lFwHo/SS', 1, 0, '2023-07-12 20:34:05', '2023-07-13 18:08:33', NULL),
+(5, 'Abdullah Rather', 'abdullah@test.com', 'F', 'flat 01 st 1 abc area', 'Yemen', 'Islamabad', '2022-12-01', '$2y$10$RcUbkZ3nUabifHR8s7dszeWaYwvzYKgIsmwgM5IKYPynEpTG09Ghm', 1, 0, '2023-07-13 12:35:53', '2023-07-13 18:08:35', NULL);
 
 -- --------------------------------------------------------
 
@@ -76,20 +88,21 @@ CREATE TABLE IF NOT EXISTS `migrations` (
   `migration` varchar(255) COLLATE utf8mb3_unicode_ci NOT NULL,
   `batch` int NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=28 DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_unicode_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_unicode_ci;
 
 --
 -- Dumping data for table `migrations`
 --
 
 INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
-(21, '2014_10_12_000000_create_users_table', 1),
-(22, '2014_10_12_100000_create_password_resets_table', 1),
-(23, '2019_08_19_000000_create_failed_jobs_table', 1),
-(24, '2019_12_14_000001_create_personal_access_tokens_table', 1),
-(25, '2023_06_26_125546_create_customers_table', 1),
-(26, '2023_06_26_132247_add_columns_to_customers_table', 1),
-(27, '2023_06_26_151038_create_prodcuts_table', 1);
+(1, '2014_10_12_000000_create_users_table', 1),
+(2, '2014_10_12_100000_create_password_resets_table', 1),
+(3, '2019_08_19_000000_create_failed_jobs_table', 1),
+(4, '2019_12_14_000001_create_personal_access_tokens_table', 1),
+(5, '2023_06_26_125546_create_customers_table', 1),
+(6, '2023_06_26_132247_add_columns_to_customers_table', 1),
+(7, '2023_06_26_151038_create_prodcuts_table', 1),
+(8, '2023_07_07_130724_add_deleted_at_to_customers_table', 1);
 
 -- --------------------------------------------------------
 
@@ -131,11 +144,11 @@ CREATE TABLE IF NOT EXISTS `personal_access_tokens` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `prodcuts`
+-- Table structure for table `products`
 --
 
-DROP TABLE IF EXISTS `prodcuts`;
-CREATE TABLE IF NOT EXISTS `prodcuts` (
+DROP TABLE IF EXISTS `products`;
+CREATE TABLE IF NOT EXISTS `products` (
   `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
