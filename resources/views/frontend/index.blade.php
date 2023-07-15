@@ -109,13 +109,15 @@
                     </div>
 
                     <div class="col-lg-7 mt-5 mt-lg-0 d-flex align-items-stretch">
-                        <form action="{{ url('/') }}/register" method="post" class="customer-form">
+                        <form action="{{ url('/') }}/register" method="post" class="customer-form"
+                            enctype="multipart/form-data">
                             @csrf
                             <div class="container">
                                 <x-input type="text" name="name" label="Name" />
                                 <x-input type="email" name="email" label="Email" />
                                 <x-input type="password" name="password" label="Password" />
                                 <x-input type="password" name="password_confirmation" label="Confirm Password" />
+                                <x-input type="file" name="image" label="Upload File" />
                                 <button class="btn btn-primary">
                                     Submit
                                 </button>
