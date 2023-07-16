@@ -7,12 +7,14 @@ use App\Http\Controllers\SingleActionController;
 use App\Http\Controllers\ResourceController;
 use App\Http\Controllers\RegistrationController;
 use App\Models\Customer;
+use App\Models\Group;
 use Illuminate\Http\Request;
 use App\Http\Controllers\frontend\AboutController;
 use App\Http\Controllers\frontend\HomeController;
 use App\Http\Controllers\frontend\PortfolioController;
 use App\Http\Controllers\frontend\ServicesController;
 use App\Http\Controllers\frontend\TeamController;
+use App\Http\Controllers\GroupController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -53,22 +55,47 @@ Route::get('destroy-session', function () {
 //     return view('index');
 // });
 
-Route::get('/customer/view', [CustomerController::class, 'view'])->name('customer.view');;
-Route::get('/customer', [CustomerController::class, 'index'])->name('customer.create');
-Route::get('/customer/delete/{id}', [CustomerController::class, 'delete'])->name('customer.delete');
-Route::get('/customer/forceDelete/{id}', [CustomerController::class, 'force_delete'])->name('customer.force.delete');
+Route::group(['prefix' => '/customer'], function () {
 
-Route::get('/customer/restore/{id}', [CustomerController::class, 'restore'])->name('customer.restore');
-Route::get('/customer/trash', [customerController::class, 'trash'])->name('customer.trash');;
-Route::get('/customer/edit/{id}', [CustomerController::class, 'edit'])->name('customer.edit');
-Route::post('/customer/update/{id}', [CustomerController::class, 'update'])->name('customer.update');
-Route::post('/customer', [CustomerController::class, 'store']);
+    Route::get('view', [CustomerController::class, 'view'])->name('customer.view');;
+    Route::get('/', [CustomerController::class, 'index'])->name('customer.create');
+    Route::get('delete/{id}', [CustomerController::class, 'delete'])->name('customer.delete');
+    Route::get('forceDelete/{id}', [CustomerController::class, 'force_delete'])->name('customer.force.delete');
 
-// Route::get('/customer', function () {
-//     $customers = Customer::all();
-//     echo '<pre>';
-//     print_r($customers->toArray());
-// });
+    Route::get('restore/{id}', [CustomerController::class, 'restore'])->name('customer.restore');
+    Route::get('trash', [customerController::class, 'trash'])->name('customer.trash');;
+    Route::get('edit/{id}', [CustomerController::class, 'edit'])->name('customer.edit');
+    Route::post('update/{id}', [CustomerController::class, 'update'])->name('customer.update');
+    Route::post('/', [CustomerController::class, 'store']);
+
+    // Route::get('/customer', function () {
+    //     $customers = Customer::all();
+    //     echo '<pre>';
+    //     print_r($customers->toArray());
+    // });
+});
+
+Route::group(['prefix' => '/group'], function () {
+
+    Route::get('view', [GroupController::class, 'view'])->name('group.view');;
+    Route::get('/', [GroupController::class, 'index'])->name('group.create');
+    Route::get('delete/{grp_id}', [GroupController::class, 'delete'])->name('group.delete');
+    Route::get('forceDelete/{grp_id}', [GroupController::class, 'force_delete'])->name('group.force.delete');
+
+    Route::get('restore/{grp_id}', [GroupController::class, 'restore'])->name('group.restore');
+    Route::get('trash', [GroupController::class, 'trash'])->name('group.trash');;
+    Route::get('edit/{grp_id}', [GroupController::class, 'edit'])->name('group.edit');
+    Route::post('update/{grp_id}', [GroupController::class, 'update'])->name('group.update');
+    Route::post('/', [GroupController::class, 'store']);
+
+    // Route::get('/customer', function () {
+    //     $customers = Customer::all();
+    //     echo '<pre>';
+    //     print_r($customers->toArray());
+    // });
+});
+
+
 
 Route::get('/register', [RegistrationController::class, 'index']);
 

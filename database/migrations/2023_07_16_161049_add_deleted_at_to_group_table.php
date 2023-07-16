@@ -13,9 +13,8 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::table('customers', function (Blueprint $table) {
-            $table->string('country', 255)->nullable()->after('address');
-            $table->string('state', 50)->nullable()->after('country');
+        Schema::table('group', function (Blueprint $table) {
+            $table->softDeletes();
         });
     }
 
@@ -26,8 +25,8 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::table('customers', function (Blueprint $table) {
-            //
+        Schema::table('group', function (Blueprint $table) {
+            $table->dropSoftDeletes();
         });
     }
 };

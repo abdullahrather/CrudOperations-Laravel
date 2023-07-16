@@ -66,6 +66,12 @@
                             <li><a href="{{ route('customer.create') }}">Customer Add</a></li>
                         </ul>
                     </li>
+                    <li class="dropdown"><a href="#"><span>Groups</span> <i class="bi bi-chevron-down"></i></a>
+                        <ul>
+                            <li><a href="{{ url('/group/view') }}">Group Records</a></li>
+                            <li><a href="{{ route('group.create') }}">Group Add</a></li>
+                        </ul>
+                    </li>
                     <li><a class="getstarted scrollto" href="#">Button</a></li>
                 </ul>
                 <i class="bi bi-list mobile-nav-toggle"></i>

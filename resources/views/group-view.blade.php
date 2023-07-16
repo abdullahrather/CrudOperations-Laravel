@@ -1,15 +1,15 @@
 @extends('frontend.layouts.main')
 @section('main-container')
     @push('Title')
-        <title>Customer Record</title>
+        <title>Group Record</title>
     @endpush
     @push('li')
-        <li>Customer Record</li>
+        <li>Group Record</li>
     @endpush
     <section id="#" class="d-flex align-items-center">
         <div class="container" data-aos="fade-up">
             <div class="section-title">
-                <h2>Customer Records</h2>
+                <h2>Group Records</h2>
             </div>
             <div class="row content">
                 <form action="">
@@ -17,9 +17,9 @@
                         <div class="col-md-12">
                             <div class="input-group">
                                 <input type="search" name="search" id="" class="form-control"
-                                    placeholder="Search here by Name or Email" value="{{ $search }}">
+                                    placeholder="Search here by Name or Description" value="{{ $search }}">
                                 <button class="btn btn-primary"><i class="fa fa-search"></i>Search</button>
-                                <a href="{{ url('/customer/view') }}">
+                                <a href="{{ url('/group/view') }}">
                                     <button class="btn btn-primary" type="button"><i class="fa fa-reset"></i>Reset</button>
                                 </a>
                             </div>
@@ -27,10 +27,10 @@
                     </div>
                 </form>
                 <div class="button-container">
-                    <a href="{{ route('customer.create') }}">
+                    <a href="{{ route('group.create') }}">
                         <button class="btn btn-primary d-inline-block m-2">Add Record</button>
                     </a>
-                    <a href="{{ route('customer.trash') }}">
+                    <a href="{{ route('group.trash') }}">
                         <button class="btn btn-danger d-inline-block m-2">Go to Trash</button>
                     </a>
                 </div>
@@ -39,15 +39,9 @@
                         <thead class="thead-dark">
                             <tr>
                                 <th>Sr.</th>
-                                <th>Name</th>
-                                <th>Email</th>
-                                <th>Gender</th>
                                 <th>Group Name</th>
+                                <th>Group Description</th>
                                 <th>Group Logo</th>
-                                <th>Address</th>
-                                <th>Country</th>
-                                <th>State</th>
-                                <th>Date of Birth</th>
                                 <th>Status</th>
                                 <th>Action</th>
                             </tr>
@@ -56,33 +50,21 @@
                             @php
                                 $i = 1;
                             @endphp
-                            @foreach ($customers as $customer)
+                            @foreach ($groups as $group)
                                 <tr>
                                     <td scope="row">{{ $i }}</td>
-                                    <td>{{ $customer->name }}</td>
-                                    <td>{{ $customer->email }}</td>
+                                    <td>{{ $group->grp_name }}</td>
+                                    <td>{{ $group->grp_desc }}</td>
                                     <td>
-                                        @if ($customer->gender == 'M')
-                                            Male
-                                        @else
-                                            Female
-                                        @endif
-                                    </td>
-                                    <td>{{ $customer->group->grp_name }}</td>
-                                    <td>
-                                        @if ($customer->group->grp_logo)
-                                            <img src="{{ asset('storage/' . $customer->group->grp_logo) }}" alt="Group Logo"
+                                        @if ($group->grp_logo)
+                                            <img src="{{ asset('storage/' . $group->grp_logo) }}" alt="Group Logo"
                                                 width="100">
                                         @else
-                                            No Logo
+                                            No Image
                                         @endif
                                     </td>
-                                    <td>{{ $customer->address }}</td>
-                                    <td>{{ $customer->country }}</td>
-                                    <td>{{ $customer->state }}</td>
-                                    <td>{{ $customer->DOB }}</td>
                                     <td>
-                                        @if ($customer->status == '1')
+                                        @if ($group->status == '1')
                                             <a href="">
                                                 <span class="badge badge-success">Active</span>
                                             </a>
@@ -96,9 +78,9 @@
 
                                         {{-- <a href="{{url('/customer/delete/')}}/{{$customer->id}}"><button class="btn btn-danger">Delete</button></a> --}}
                                         <div class="button-container">
-                                            <a href="{{ route('customer.delete', ['id' => $customer->id]) }}"><button
+                                            <a href="{{ route('group.delete', ['grp_id' => $group->grp_id]) }}"><button
                                                     class="btn btn-danger">Trash</button></a>
-                                            <a href="{{ route('customer.edit', ['id' => $customer->id]) }}"><button
+                                            <a href="{{ route('group.edit', ['grp_id' => $group->grp_id]) }}"><button
                                                     class="btn btn-secondary">Edit</button></a>
                                         </div>
                                     </td>
@@ -113,7 +95,7 @@
                 <div class="row">
                     <div class="col-md-12 text-center">
                         <ul class="pagination justify-content-center">
-                            {{ $customers->links() }}
+                            {{ $groups->links() }}
                         </ul>
                     </div>
                 </div>
