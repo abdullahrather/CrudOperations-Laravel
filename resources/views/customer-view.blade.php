@@ -1,7 +1,7 @@
 @extends('frontend.layouts.main')
 @section('main-container')
     @push('Title')
-        <title>Custoemr Record</title>
+        <title>Customer Record</title>
     @endpush
     @push('li')
         <li>Customer Record</li>
@@ -12,6 +12,20 @@
                 <h2>Customer Records</h2>
             </div>
             <div class="row content">
+                <form action="">
+                    <div class="form-group row">
+                        <div class="col-md-12">
+                            <div class="input-group">
+                                <input type="search" name="search" id="" class="form-control"
+                                    placeholder="Search here by Name or Email" value="{{ $search }}">
+                                <button class="btn btn-primary"><i class="fa fa-search"></i>Search</button>
+                                <a href="{{ url('/customer/view') }}">
+                                    <button class="btn btn-primary" type="button"><i class="fa fa-reset"></i>Reset</button>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </form>
                 <div class="button-container">
                     <a href="{{ route('customer.create') }}">
                         <button class="btn btn-primary d-inline-block m-2">Add Record</button>
@@ -24,6 +38,7 @@
                     <table class="table table-bordered table-sm">
                         <thead class="thead-dark">
                             <tr>
+                                <th>Sr.</th>
                                 <th>Name</th>
                                 <th>Email</th>
                                 <th>Gender</th>
@@ -36,9 +51,13 @@
                             </tr>
                         </thead>
                         <tbody>
+                            @php
+                                $i = 1;
+                            @endphp
                             @foreach ($customers as $customer)
                                 <tr>
-                                    <td scope="row">{{ $customer->name }}</td>
+                                    <td scope="row">{{ $i }}</td>
+                                    <td>{{ $customer->name }}</td>
                                     <td>{{ $customer->email }}</td>
                                     <td>
                                         @if ($customer->gender == 'M')
@@ -73,10 +92,21 @@
                                         </div>
                                     </td>
                                 </tr>
+                                @php
+                                    $i++;
+                                @endphp
                             @endforeach
                         </tbody>
                     </table>
                 </div>
+                <div class="row">
+                    <div class="col-md-12 text-center">
+                        <ul class="pagination justify-content-center">
+                            {{ $customers->links() }}
+                        </ul>
+                    </div>
+                </div>
+
             </div>
         </div>
 
