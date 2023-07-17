@@ -53,47 +53,17 @@
                                 <h2>{{ $title }}</h2>
                             </div>
                             <div class="form-group row">
-                                <div class="col-md-6">
-                                    <label for="name">Name</label>
-                                    <input type="text" name="name" id="name" class="form-control"
-                                        value="{{ trim($customer->name) ?: old('name') }}">
-                                    <span class="text-danger">
-                                        @error('name')
-                                            {{ $message }}
-                                        @enderror
-                                    </span>
-                                </div>
-                                <div class="col-md-6">
-                                    <label for="email">Email</label>
-                                    <input type="email" name="email" id="email" class="form-control"
-                                        value="{{ trim($customer->email) ?: old('email') }}">
-                                    <span class="text-danger">
-                                        @error('email')
-                                            {{ $message }}
-                                        @enderror
-                                    </span>
-                                </div>
+                                <x-form-component class="col-md-6" for="name" label="Name" type="text"
+                                    name="name" id="name" value="{{ trim($customer->name) ?: old('name') }}" />
+                                <x-form-component class="col-md-6" for="email" label="Email" type="email"
+                                    name="email" id="email" value="{{ trim($customer->email) ?: old('email') }}" />
                             </div>
                             <div class="form-group row">
-                                <div class="col-md-6">
-                                    <label for="password">Password</label>
-                                    <input type="password" name="password" id="password" class="form-control">
-                                    <span class="text-danger">
-                                        @error('password')
-                                            {{ $message }}
-                                        @enderror
-                                    </span>
-                                </div>
-                                <div class="col-md-6">
-                                    <label for="password_confirmation">Confirm Password</label>
-                                    <input type="password" name="password_confirmation" id="password_confirmation"
-                                        class="form-control">
-                                    <span class="text-danger">
-                                        @error('password_confirmation')
-                                            {{ $message }}
-                                        @enderror
-                                    </span>
-                                </div>
+                                <x-form-component class="col-md-6" for="password" label="Password" type="password"
+                                    name="password" id="password" value="" />
+                                <x-form-component class="col-md-6" for="password_confirmation" label="Confirm Password"
+                                    type="password" name="password_confirmation" id="password_confirmation"
+                                    value="" />
                             </div>
                             <div class="form-group">
                                 <label for="grp_id">Group</label>
@@ -112,28 +82,34 @@
                                     @enderror
                                 </span>
                             </div>
-
                             <div class="form-group">
-                                <label for="country">Country</label>
-                                <select name="country" id="country" class="form-control">
-                                    <option value="">Select Country</option>
-                                    @foreach ($countries as $country)
-                                        <option value="{{ $country }}"
-                                            {{ trim($customer->country) == $country || old('country') == $country ? 'selected' : '' }}>
-                                            {{ $country }}</option>
-                                    @endforeach
-                                </select>
-                                <span class="text-danger">
-                                    @error('country')
-                                        {{ $message }}
-                                    @enderror
-                                </span>
+                                <x-formselect class="col-md-6" for="country" label="Country" name="country" id="country"
+                                    option="Select Country" foreacharray={{($countries as $country)}} value="{{ $country }}" attribute=""
+                                    option2="" />
                             </div>
+                            <div class="form-group row">
+                                <div class="col-md-6">
+                                    <label for="country">Country</label>
+                                    <select name="country" id="country" class="form-control">
+                                        <option value="">Select Country</option>
+                                        @foreach ($countries as $country)
+                                            <option value="{{ $country }}"
+                                                {{ trim($customer->country) == $country || old('country') == $country ? 'selected' : '' }}>
+                                                {{ $country }}</option>
+                                        @endforeach
+                                    </select>
+                                    <span class="text-danger">
+                                        @error('country')
+                                            {{ $message }}
+                                        @enderror
+                                    </span>
+                                </div>
 
-                            <div class="form-group">
-                                <label for="state">State</label>
-                                <input type="text" name="state" id="state" class="form-control"
-                                    value="{{ trim($customer->state) ?: old('state') }}">
+                                <div class="col-md-6">
+                                    <label for="state">State</label>
+                                    <input type="text" name="state" id="state" class="form-control"
+                                        value="{{ trim($customer->state) ?: old('state') }}">
+                                </div>
                             </div>
                             <div class="form-group">
                                 <label for="address">Address</label>
