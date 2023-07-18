@@ -52,34 +52,14 @@
 
                                 <h2>{{ $title }}</h2>
                             </div>
-                            <div class="form-group">
-                                <label for="grp_name">Group Name</label>
-                                <input type="text" name="grp_name" id="grp_name" class="form-control"
-                                    value="{{ trim($group->grp_name) ?: old('grp_name') }}">
-                                <span class="text-danger">
-                                    @error('grp_name')
-                                        {{ $message }}
-                                    @enderror
-                                </span>
-                            </div>
-                            <div class="form-group">
-                                <label for="grp_desc">Group Description</label>
-                                <textarea class="form-control" name="grp_desc" id="grp_desc" rows="3">{{ trim($group->grp_desc) ?: old('grp_desc') }}</textarea>
-                                <span class="text-danger">
-                                    @error('grp_desc')
-                                        {{ $message }}
-                                    @enderror
-                                </span>
-                            </div>
-                            <div class="form-group">
-                                <label for="grp_logo">Group Logo</label>
-                                <input type="file" name="grp_logo" id="grp_logo" class="form-control">
-                                <span class="text-danger">
-                                    @error('grp_logo')
-                                        {{ $message }}
-                                    @enderror
-                                </span>
-                            </div>
+                            <x-form-component class="form-group" for="grp_name" label="Group Name" type="text"
+                                name="grp_name" id="grp_name" value="{{ trim($group->grp_name) ?: old('grp_name') }}" />
+
+                            <x-form-textarea class="form-group" for="grp_desc" label="Group Description" rows="3"
+                                name="grp_desc" id="grp_desc" :selectedvalue="trim($group->grp_desc)" />
+
+                            <x-form-component class="form-group" for="grp_logo" label="Group Logo" type="file"
+                                name="grp_logo" id="grp_logo" value="{{ $group->grp_logo ?: old('grp_logo') }}" />
                         </div>
                         <button class="btn btn-primary">
                             Submit
