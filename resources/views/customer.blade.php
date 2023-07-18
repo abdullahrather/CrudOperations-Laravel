@@ -65,75 +65,24 @@
                                     type="password" name="password_confirmation" id="password_confirmation"
                                     value="" />
                             </div>
-                            <div class="form-group">
-                                <label for="grp_id">Group</label>
-                                <select name="grp_id" id="grp_id" class="form-control">
-                                    <option value="">Select Group</option>
-                                    @foreach ($groups as $group)
-                                        <option value="{{ $group->grp_id }}"
-                                            {{ $customer->grp_id == $group->grp_id || old('grp_id') == $group->grp_id ? 'selected' : '' }}>
-                                            {{ $group->grp_name }}
-                                        </option>
-                                    @endforeach
-                                </select>
-                                <span class="text-danger">
-                                    @error('grp_id')
-                                        {{ $message }}
-                                    @enderror
-                                </span>
-                            </div>
-                            <div class="form-group">
-                                <x-formselect class="col-md-6" for="country" label="Country" name="country" id="country"
-                                    option="Select Country" foreacharray={{($countries as $country)}} value="{{ $country }}" attribute=""
-                                    option2="" />
-                            </div>
+                            <x-form-select class="form-group" label="Group" for="grp_id" name="grp_id" id="grp_id"
+                                option="Select Group" :options="$groups->pluck('grp_name', 'grp_id')" :selectedvalue="trim($customer->grp_id)" />
                             <div class="form-group row">
-                                <div class="col-md-6">
-                                    <label for="country">Country</label>
-                                    <select name="country" id="country" class="form-control">
-                                        <option value="">Select Country</option>
-                                        @foreach ($countries as $country)
-                                            <option value="{{ $country }}"
-                                                {{ trim($customer->country) == $country || old('country') == $country ? 'selected' : '' }}>
-                                                {{ $country }}</option>
-                                        @endforeach
-                                    </select>
-                                    <span class="text-danger">
-                                        @error('country')
-                                            {{ $message }}
-                                        @enderror
-                                    </span>
-                                </div>
+                                <x-form-select class="col-md-6" label="Country" for="country" name="country" id="country"
+                                    option="Select Country" :options="$countries" :selectedvalue="trim($customer->country)" />
+                                <x-form-component class="col-md-6" for="state" label="State" type="text"
+                                    name="state" id="state" value="{{ trim($customer->state) ?: old('state') }}" />
+                            </div>
+                            <x-form-textarea class="form-group" for="address" label="Address" rows="3" name="address"
+                                id="address" :selectedvalue="trim($customer->address)" />
+                            <div class="form-group row">
 
                                 <div class="col-md-6">
-                                    <label for="state">State</label>
-                                    <input type="text" name="state" id="state" class="form-control"
-                                        value="{{ trim($customer->state) ?: old('state') }}">
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label for="address">Address</label>
-                                <textarea class="form-control" name="address" id="address" rows="3">{{ trim($customer->address) ?: old('address') }}</textarea>
-                            </div>
-                            <div class="form-group row">
-                                <div class="col-md-6">
                                     <label for="gender">Gender</label>
-                                    <div class="form-check">
-                                        <label class="form-check-label">
-                                            <input type="radio" class="form-check-input" name="gender" id="male"
-                                                value="M"
-                                                {{ (trim($customer->gender == 'M' ? 'checked' : '') ?: old('gender') === 'M') ? 'checked' : '' }}>
-                                            Male
-                                        </label>
-                                    </div>
-                                    <div class="form-check">
-                                        <label class="form-check-label">
-                                            <input type="radio" class="form-check-input" name="gender" id="female"
-                                                value="F"
-                                                {{ (trim($customer->gender == 'F' ? 'checked' : '') ?: old('gender') === 'F') ? 'checked' : '' }}>
-                                            Female
-                                        </label>
-                                    </div>
+                                    <x-form-check label="Male" name="gender" id="male" value="M"
+                                        :ischecked="trim($customer->gender) === 'M' || old('gender') === 'M'" type="radio" />
+                                    <x-form-check label="Female" name="gender" id="female" value="F"
+                                        :ischecked="trim($customer->gender) === 'F' || old('gender') === 'F'" type="radio" />
                                 </div>
                                 <div class="col-md-6">
                                     <label for="dob">Date of Birth</label>
