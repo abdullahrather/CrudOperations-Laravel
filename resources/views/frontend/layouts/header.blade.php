@@ -30,17 +30,7 @@
     <link href="{{ url('frontend/assets/vendor/glightbox/css/glightbox.min.css') }}" rel="stylesheet">
     <link href="{{ url('frontend/assets/vendor/remixicon/remixicon.css') }}" rel="stylesheet">
     <link href="{{ url('frontend/assets/vendor/swiper/swiper-bundle.min.css') }}" rel="stylesheet">
-
-    <!-- Template Main CSS File -->
     <link href="{{ url('frontend/assets/css/style.css') }}" rel="stylesheet">
-
-    <!-- =======================================================
-  * Template Name: Arsha
-  * Updated: Jul 05 2023 with Bootstrap v5.3.0
-  * Template URL: https://bootstrapmade.com/arsha-free-bootstrap-html-template-corporate/
-  * Author: BootstrapMade.com
-  * License: https://bootstrapmade.com/license/
-  ======================================================== -->
 </head>
 
 <body>
@@ -48,28 +38,24 @@
     <!-- ======= Header ======= -->
     <header id="header" class="fixed-top ">
         <div class="container d-flex align-items-center">
-
-            <h1 class="logo me-auto"><a href="{{ url('/') }}">Project</a></h1>
-            <!-- Uncomment below if you prefer to use an image logo -->
-            <!-- <a href="index.html" class="logo me-auto"><img src="{{ url('frontend/assets/img/logo.png') }}" alt="" class="img-fluid"></a>-->
-
-            <nav id="navbar" class="navbar">
-                <ul>
-                    <li><a class="{{ Request::is('/') ? 'active' : '' }}" class="nav-link scrollto" href="{{ url('/') }}">Home</a></li>
-                    <li><a class="{{ Request::is('about-us') ? 'active' : '' }}" class="nav-link scrollto" href="{{ url('/about-us') }}">About</a></li>
-                    <li><a class="{{ Request::is('services') ? 'active' : '' }}" class="nav-link scrollto" href="{{ url('/services') }}">Services</a></li>
-                    <li><a class="{{ Request::is('portfolio') ? 'active' : '' }}" class="nav-link   scrollto" href="{{ url('/portfolio') }}">Portfolio</a></li>
-                    <li><a class="{{ Request::is('team') ? 'active' : '' }}" class="nav-link scrollto" href="{{ url('/team') }}">Team</a></li>
-                    <li class="dropdown"><a href="#"><span>Customers</span> <i class="bi bi-chevron-down"></i></a>
+         <h1 class="logo me-auto"><a href="{{ url('/') }}">Project</a></h1>
+          <nav id="navbar" class="navbar">
+            <ul>
+                    <x-nav-bar liclass="" anchorclass="/" link="/" lilabel="Home" iclass="" /></li>
+                    <x-nav-bar liclass="" anchorclass="about-us" link="/about-us" lilabel="About" iclass="" /></li>
+                    <x-nav-bar liclass="" anchorclass="services" link="/services" lilabel="Services" iclass="" /></li>
+                    <x-nav-bar liclass="" anchorclass="portfolio" link="/portfolio" lilabel="Portfolio" iclass="" /></li>
+                    <x-nav-bar liclass="" anchorclass="team" link="/team" lilabel="Team" iclass="" /></li>
+                    <x-nav-bar liclass="dropdown" anchorclass="" link="#" lilabel="Customers" iclass="bi bi-chevron-down" />
                         <ul>
-                            <li><a href="{{ url('/customer/view') }}">Customer Records</a></li>
-                            <li><a href="{{ route('customer.create') }}">Customer Add</a></li>
+                            <x-nav-bar liclass="" anchorclass="" link="{{ url('/customer/view') }}" lilabel="Customer Records" iclass="" /></li>
+                            <x-nav-bar liclass="" anchorclass="" link="{{ route('customer.create') }}" lilabel="Customer Add" iclass="" /></li>
                         </ul>
                     </li>
-                    <li class="dropdown"><a href="#"><span>Groups</span> <i class="bi bi-chevron-down"></i></a>
+                    <x-nav-bar liclass="dropdown" anchorclass="" link="#" lilabel="Groups" iclass="bi bi-chevron-down" />
                         <ul>
-                            <li><a href="{{ url('/group/view') }}">Group Records</a></li>
-                            <li><a href="{{ route('group.create') }}">Group Add</a></li>
+                            <x-nav-bar liclass="" anchorclass="" link="{{ url('/group/view') }}" lilabel="Group Records" iclass="" /></li>
+                            <x-nav-bar liclass="" anchorclass="" link="{{ route('group.create') }}" lilabel="Group Add" iclass="" /></li>
                         </ul>
                     </li>
                     <li><a class="getstarted scrollto" href="#">Button</a></li>

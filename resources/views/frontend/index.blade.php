@@ -69,9 +69,7 @@
                                 <x-input type="password" name="password" label="Password" />
                                 <x-input type="password" name="password_confirmation" label="Confirm Password" />
                                 <x-input type="file" name="image" label="Upload File" />
-                                <button class="btn btn-primary">
-                                    Submit
-                                </button>
+                                <x-button buttonclass="btn btn-primary" title="Submit" />
                             </div>
                         </form>
                     </div>

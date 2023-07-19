@@ -13,25 +13,14 @@
             </div>
             <div class="row content">
                 <form action="">
-                    <div class="form-group row">
-                        <div class="col-md-12">
-                            <div class="input-group">
-                                <input type="search" name="search" id="" class="form-control"
-                                    placeholder="Search here by Name or Email" value="{{ $search }}">
-                                <button class="btn btn-primary"><i class="fa fa-search"></i>Search</button>
-                                <a href="{{ url('/customer/view') }}">
-                                    <button class="btn btn-primary" type="button"><i class="fa fa-reset"></i>Reset</button>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
+                    <x-search-bar />
                 </form>
                 <div class="button-container">
                     <a href="{{ route('customer.create') }}">
-                        <button class="btn btn-primary d-inline-block m-2">Add Record</button>
+                        <x-button buttonclass="btn btn-primary d-inline-block m-2" title="Add Record" />
                     </a>
                     <a href="{{ route('customer.trash') }}">
-                        <button class="btn btn-danger d-inline-block m-2">Go to Trash</button>
+                        <x-button buttonclass="btn btn-danger d-inline-block m-2" title="Go to Trash" />
                     </a>
                 </div>
                 <div class="table-responsive">
@@ -96,10 +85,12 @@
 
                                         {{-- <a href="{{url('/customer/delete/')}}/{{$customer->id}}"><button class="btn btn-danger">Delete</button></a> --}}
                                         <div class="button-container">
-                                            <a href="{{ route('customer.delete', ['id' => $customer->id]) }}"><button
-                                                    class="btn btn-danger">Trash</button></a>
-                                            <a href="{{ route('customer.edit', ['id' => $customer->id]) }}"><button
-                                                    class="btn btn-secondary">Edit</button></a>
+                                            <a href="{{ route('customer.delete', ['id' => $customer->id]) }}">
+                                                <x-button buttonclass="btn btn-danger" title="Trash" />
+                                            </a>
+                                            <a href="{{ route('customer.edit', ['id' => $customer->id]) }}">
+                                                <x-button buttonclass="btn btn-secondary" title="Edit" />
+                                            </a>
                                         </div>
                                     </td>
                                 </tr>

@@ -9,7 +9,8 @@
     <section id="contact" class="contact">
         <div class="container" data-aos="fade-up">
 
-            <x-title-section heading="Groups" para="Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint
+            <x-title-section heading="Groups"
+                para="Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint
                 consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia
                 fugiat sit in iste officiis commodi quidem hic quas." />
 
@@ -34,9 +35,8 @@
                                 name="grp_logo" id="grp_logo" value="{{ $group->grp_logo ?: old('grp_logo') }}" />
 
                         </div>
-                        <button class="btn btn-primary">
-                            Submit
-                        </button>
+                        <x-button buttonclass="btn btn-primary" title="Submit" />
+
                 </div>
                 </form>
             </div>

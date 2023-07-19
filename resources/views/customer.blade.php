@@ -39,9 +39,7 @@
                                     type="password" name="password_confirmation" id="password_confirmation"
                                     value="" />
                             </div>
-
-                            <x-form-select class="form-group" label="Group" for="grp_id" name="grp_id" id="grp_id"
-                                option="Select Group" :options="$groups->pluck('grp_name', 'grp_id')" :selectedvalue="trim($customer->grp_id)" />
+                            <x-form-select-group :options="$groups" :table="$customer" />
 
                             <div class="form-group row">
                                 <x-form-select class="col-md-6" label="Country" for="country" name="country" id="country"
@@ -64,10 +62,7 @@
                                 <x-form-component class="col-md-6" for="dob" label="Date of Birth" type="date"
                                     name="DOB" id="DOB" value="{{ trim($customer->DOB) ?: old('DOB') }}" />
                             </div>
-
-                            <button class="btn btn-primary">
-                                Submit
-                            </button>
+                            <x-button buttonclass="btn btn-primary" title="Submit" />
                         </div>
                     </form>
                 </div>
