@@ -30,20 +30,20 @@
                     <a href="{{ route('group.create') }}">
                         <button class="btn btn-primary d-inline-block m-2">Add Record</button>
                     </a>
-                    <a href="{{ route('group.trash') }}">
+                    {{-- <a href="{{ route('group.trash') }}">
                         <button class="btn btn-danger d-inline-block m-2">Go to Trash</button>
-                    </a>
+                    </a> --}}
                 </div>
                 <div class="table-responsive">
                     <table class="table table-bordered table-sm">
                         <thead class="thead-dark">
                             <tr>
-                                <th>Sr.</th>
+                                <th class="text-center">Sr.</th>
                                 <th>Group Name</th>
                                 <th>Group Description</th>
-                                <th>Group Logo</th>
-                                <th>Status</th>
-                                <th>Action</th>
+                                <th class="text-center">Group Logo</th>
+                                <th class="text-center">Status</th>
+                                <th class="text-center">Action</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -52,10 +52,10 @@
                             @endphp
                             @foreach ($groups as $group)
                                 <tr>
-                                    <td scope="row">{{ $i }}</td>
+                                    <td class="text-center" scope="row">{{ $i }}</td>
                                     <td>{{ $group->grp_name }}</td>
                                     <td>{{ $group->grp_desc }}</td>
-                                    <td>
+                                    <td class="text-center">
                                         @if ($group->grp_logo)
                                             <img src="{{ asset('storage/' . $group->grp_logo) }}" alt="Group Logo"
                                                 width="100">
@@ -63,7 +63,7 @@
                                             No Image
                                         @endif
                                     </td>
-                                    <td>
+                                    <td class="text-center">
                                         @if ($group->status == '1')
                                             <a href="">
                                                 <span class="badge badge-success">Active</span>
@@ -74,12 +74,11 @@
                                             </a>
                                         @endif
                                     </td>
-                                    <td>
+                                    <td class="text-center">
 
-                                        {{-- <a href="{{url('/customer/delete/')}}/{{$customer->id}}"><button class="btn btn-danger">Delete</button></a> --}}
-                                        <div class="button-container">
+                                        {{-- <div class="button-container">
                                             <a href="{{ route('group.delete', ['grp_id' => $group->grp_id]) }}"><button
-                                                    class="btn btn-danger">Trash</button></a>
+                                                    class="btn btn-danger">Trash</button></a> --}}
                                             <a href="{{ route('group.edit', ['grp_id' => $group->grp_id]) }}"><button
                                                     class="btn btn-secondary">Edit</button></a>
                                         </div>

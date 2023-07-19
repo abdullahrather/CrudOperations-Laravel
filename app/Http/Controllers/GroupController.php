@@ -28,7 +28,7 @@ class GroupController extends Controller
         // Handle upload file
         if ($request->hasFile('grp_logo')) {
             $file = $request->file('grp_logo');
-            $filename = time() ."_". $file->getClientOriginalName();
+            $filename = time() . "_" . $file->getClientOriginalName();
             $path = $file->storeAs('group-logos', $filename, 'public'); //path storage folder
 
             //Insert Query
@@ -111,12 +111,25 @@ class GroupController extends Controller
     public function update($grp_id, Request $request)
     {
         $group = Group::find($grp_id);
-        $group = new Group;
-        $group->grp_name = $request['grp_name'];
-        $group->grp_desc = $request['grp_desc'];
-        $group->grp_logo = $request['grp_logo'];
-        $group->save();
+        if (is_null($group)) {
+            //Not Found
+            return redirect('group/view');
+        } else {
+            $request->validate([
+                'grp_name' => 'required',
+                'grp_logo' => 'image|mimes:jpeg,png,jpg,gif|max:2048',
+            ]);
+            $group->grp_name = $request['grp_name'];
+            $group->grp_desc = $request['grp_desc'];
+            if ($request->hasFile('grp_logo')) {
+                $file = $request->file('grp_logo');
+                $filename = time() . "_" . $file->getClientOriginalName();
+                $path = $file->storeAs('group-logos', $filename, 'public'); // path storage folder
+                $group->grp_logo = $path;
+            }
+            $group->save();
 
-        return redirect('group/view');
+            return redirect('group/view');
+        }
     }
 }
