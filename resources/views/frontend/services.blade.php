@@ -16,41 +16,15 @@
             fugiat sit in iste officiis commodi quidem hic quas." />
 
             <div class="row">
-                <div class="col-xl-3 col-md-6 d-flex align-items-stretch" data-aos="zoom-in" data-aos-delay="100">
-                    <div class="icon-box">
-                        <div class="icon"><i class="bx bxl-dribbble"></i></div>
-                        <h4><a href="">Lorem Ipsum</a></h4>
-                        <p>Voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi</p>
-                    </div>
-                </div>
-
-                <div class="col-xl-3 col-md-6 d-flex align-items-stretch mt-4 mt-md-0" data-aos="zoom-in"
-                    data-aos-delay="200">
-                    <div class="icon-box">
-                        <div class="icon"><i class="bx bx-file"></i></div>
-                        <h4><a href="">Sed ut perspici</a></h4>
-                        <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore</p>
-                    </div>
-                </div>
-
-                <div class="col-xl-3 col-md-6 d-flex align-items-stretch mt-4 mt-xl-0" data-aos="zoom-in"
-                    data-aos-delay="300">
-                    <div class="icon-box">
-                        <div class="icon"><i class="bx bx-tachometer"></i></div>
-                        <h4><a href="">Magni Dolores</a></h4>
-                        <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia</p>
-                    </div>
-                </div>
-
-                <div class="col-xl-3 col-md-6 d-flex align-items-stretch mt-4 mt-xl-0" data-aos="zoom-in"
-                    data-aos-delay="400">
-                    <div class="icon-box">
-                        <div class="icon"><i class="bx bx-layer"></i></div>
-                        <h4><a href="">Nemo Enim</a></h4>
-                        <p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis</p>
-                    </div>
-                </div>
-
+                <x-div-services-section mainDivClass="" dataAosDelay="100" iconDivClass="bx bxl-dribbble" h4="Lorem Ipsum"
+                    p="Voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi" />
+                <x-div-services-section mainDivClass="mt-4 mt-md-0" dataAosDelay="200" iconDivClass="bx bx-file"
+                    h4="Sed ut perspici"
+                    p="Voluptatum deleniti atque corrupti quos dolores et quas molestias excepturiDuis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore" />
+                <x-div-services-section mainDivClass="mt-4 mt-xl-0" dataAosDelay="300" iconDivClass="bx bx-tachometer"
+                    h4="Magni Dolores" p="Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia" />
+                <x-div-services-section mainDivClass="mt-4 mt-xl-0" dataAosDelay="400" iconDivClass="bx bx-layer"
+                    h4="Nemo Enim" p="At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis" />
             </div>
 
         </div>
@@ -61,17 +35,17 @@
         <div class="container" data-aos="zoom-in">
 
             <div class="row">
-                <div class="col-lg-9 text-center text-lg-start">
-                    <h3>Call To Action</h3>
-                    <p> Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-                        pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt
-                        mollit anim id est laborum.</p>
+                <x-div-content div="col-lg-9 text-center text-lg-start" dataaos="" dataaosdelay="" h3="Call To Action"
+                    bold=""
+                    para="Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+                    pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt
+                    mollit anim id est laborum." />
                 </div>
+
                 <div class="col-lg-3 cta-btn-container text-center">
-                    <a class="cta-btn align-middle" href="#">Call To Action</a>
+                    <x-anchor-button link="#" class="cta-btn align-middle" iclass="" title="Call To Action" />
                 </div>
             </div>
-
         </div>
     </section><!-- End Cta Section -->
 @endsection

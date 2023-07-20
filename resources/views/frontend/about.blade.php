@@ -22,12 +22,9 @@
                         magna aliqua.
                     </p>
                     <ul>
-                        <li><i class="ri-check-double-line"></i> Ullamco laboris nisi ut aliquip ex ea commodo consequat
-                        </li>
-                        <li><i class="ri-check-double-line"></i> Duis aute irure dolor in reprehenderit in voluptate
-                            velit</li>
-                        <li><i class="ri-check-double-line"></i> Ullamco laboris nisi ut aliquip ex ea commodo consequat
-                        </li>
+                        <x-list-items-checklines listlabel="Ullamco laboris nisi ut aliquip ex ea commodo consequat" />
+                        <x-list-items-checklines listlabel="Duis aute irure dolor in reprehenderit in voluptate velit" />
+                        <x-list-items-checklines listlabel="Ullamco laboris nisi ut aliquip ex ea commodo consequat" />
                     </ul>
                 </div>
                 <div class="col-lg-6 pt-4 pt-lg-0">
@@ -38,7 +35,7 @@
                         proident, sunt in
                         culpa qui officia deserunt mollit anim id est laborum.
                     </p>
-                    <a href="#" class="btn-learn-more">Learn More</a>
+                    <x-anchor-button link="#" class="btn-learn-more" iclass="" title="Learn More" />
                 </div>
             </div>
 
@@ -53,71 +50,39 @@
 
                 <div class="col-lg-7 d-flex flex-column justify-content-center align-items-stretch  order-2 order-lg-1">
 
-                    <div class="content">
-                        <h3>Eum ipsam laborum deleniti <strong>velit pariatur architecto aut nihil</strong></h3>
-                        <p>
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-                            labore et dolore magna aliqua. Duis aute irure dolor in reprehenderit
-                        </p>
-                    </div>
-
-                    <div class="accordion-list">
-                        <ul>
-                            <li>
-                                <a data-bs-toggle="collapse" class="collapse"
-                                    data-bs-target="#accordion-list-1"><span>01</span> Non consectetur a erat nam at
-                                    lectus urna duis? <i class="bx bx-chevron-down icon-show"></i><i
-                                        class="bx bx-chevron-up icon-close"></i></a>
-                                <div id="accordion-list-1" class="collapse show" data-bs-parent=".accordion-list">
-                                    <p>
-                                        Feugiat pretium nibh ipsum consequat. Tempus iaculis urna id volutpat lacus
-                                        laoreet non curabitur gravida. Venenatis lectus magna fringilla urna porttitor
-                                        rhoncus dolor purus non.
-                                    </p>
-                                </div>
-                            </li>
-
-                            <li>
-                                <a data-bs-toggle="collapse" data-bs-target="#accordion-list-2"
-                                    class="collapsed"><span>02</span> Feugiat scelerisque varius morbi enim nunc? <i
-                                        class="bx bx-chevron-down icon-show"></i><i
-                                        class="bx bx-chevron-up icon-close"></i></a>
-                                <div id="accordion-list-2" class="collapse" data-bs-parent=".accordion-list">
-                                    <p>
-                                        Dolor sit amet consectetur adipiscing elit pellentesque habitant morbi. Id
-                                        interdum velit laoreet id donec ultrices. Fringilla phasellus faucibus
-                                        scelerisque eleifend donec pretium. Est pellentesque elit ullamcorper dignissim.
-                                        Mauris ultrices eros in cursus turpis massa tincidunt dui.
-                                    </p>
-                                </div>
-                            </li>
-
-                            <li>
-                                <a data-bs-toggle="collapse" data-bs-target="#accordion-list-3"
-                                    class="collapsed"><span>03</span> Dolor sit amet consectetur adipiscing elit? <i
-                                        class="bx bx-chevron-down icon-show"></i><i
-                                        class="bx bx-chevron-up icon-close"></i></a>
-                                <div id="accordion-list-3" class="collapse" data-bs-parent=".accordion-list">
-                                    <p>
-                                        Eleifend mi in nulla posuere sollicitudin aliquam ultrices sagittis orci.
-                                        Faucibus pulvinar elementum integer enim. Sem nulla pharetra diam sit amet nisl
-                                        suscipit. Rutrum tellus pellentesque eu tincidunt. Lectus urna duis convallis
-                                        convallis tellus. Urna molestie at elementum eu facilisis sed odio morbi quis
-                                    </p>
-                                </div>
-                            </li>
-
-                        </ul>
-                    </div>
-
+                    <x-div-content div="content" dataaos="" dataaosdelay="" h3="Eum ipsam laborum deleniti"
+                        bold="velit pariatur architecto aut nihil"
+                        para="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+                    labore et dolore magna aliqua. Duis aute irure dolor in reprehenderit" />
                 </div>
 
-                <div class="col-lg-5 align-items-stretch order-1 order-lg-2 img"
-                    style='background-image: url("{{ url('frontend/assets/img/why-us.png') }}");' data-aos="zoom-in"
-                    data-aos-delay="150">
-                    &nbsp;</div>
-            </div>
+                <div class="accordion-list">
+                    <ul>
+                        <x-accordion-list anchorClass="collapse" listNum="1" spanTitle="01"
+                            anchorTitle="Non consectetur a erat nam at lectus urna duis?" divClass="show"
+                            para=" Feugiat pretium nibh ipsum consequat. Tempus iaculis urna id volutpat lacus
+                        laoreet non curabitur gravida. Venenatis lectus magna fringilla urna porttitor
+                        rhoncus dolor purus non." />
+                        <x-accordion-list anchorClass="collapsed" listNum="2" spanTitle="02"
+                            anchorTitle="Feugiat scelerisque varius morbi enim
+                            nunc?"
+                            divClass=""
+                            para="Dolor sit amet consectetur adipiscing elit pellentesque habitant morbi. Id
+                            interdum velit laoreet id donec ultrices. Fringilla phasellus faucibus
+                            scelerisque eleifend donec pretium. Est pellentesque elit ullamcorper dignissim.
+                            Mauris ultrices eros in cursus turpis massa tincidunt dui." />
+                        <x-accordion-list anchorClass="collapsed" listNum="3" spanTitle="03"
+                            anchorTitle="Dolor sit amet consectetur adipiscing elit?" divClass=""
+                            para="Eleifend mi in nulla posuere sollicitudin aliquam ultrices sagittis orci.
+                            Faucibus pulvinar elementum integer enim. Sem nulla pharetra diam sit amet nisl
+                            suscipit. Rutrum tellus pellentesque eu tincidunt. Lectus urna duis convallis
+                            convallis tellus. Urna molestie at elementum eu facilisis sed odio morbi quis" />
+                    </ul>
+                </div>
 
+            </div>
+            <x-div-image divClass="col-lg-5 align-items-stretch order-1 order-lg-2 img" dataAos="zoom-in" dataAosDelay="150"
+                imgSrc="{{ url('frontend/assets/img/why-us.png') }}" />
         </div>
     </section><!-- End Why Us Section -->
 
@@ -126,56 +91,21 @@
         <div class="container" data-aos="fade-up">
 
             <div class="row">
-                <div class="col-lg-6 d-flex align-items-center" data-aos="fade-right" data-aos-delay="100">
-                    <img src="{{ url('frontend/assets/img/skills.png') }}" class="img-fluid" alt="">
-                </div>
-                <div class="col-lg-6 pt-4 pt-lg-0 content" data-aos="fade-left" data-aos-delay="100">
-                    <h3>Voluptatem dignissimos provident quasi corporis voluptates</h3>
-                    <p class="fst-italic">
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-                        labore et dolore
-                        magna aliqua.
-                    </p>
+                <x-div-image divClass="col-lg-6 d-flex align-items-center" dataAos="fade-right" dataAosDelay="100"
+                    imgSrc="{{ url('frontend/assets/img/skills.png') }}" />
 
-                    <div class="skills-content">
+                <x-div-content div="col-lg-6 pt-4 pt-lg-0 content" dataaos="fade-left" dataaosdelay="100"
+                    h3="Voluptatem dignissimos provident quasi corporis voluptates" bold=""
+                    para="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua." />
 
-                        <div class="progress">
-                            <span class="skill">HTML <i class="val">100%</i></span>
-                            <div class="progress-bar-wrap">
-                                <div class="progress-bar" role="progressbar" aria-valuenow="100" aria-valuemin="0"
-                                    aria-valuemax="100"></div>
-                            </div>
-                        </div>
-
-                        <div class="progress">
-                            <span class="skill">CSS <i class="val">90%</i></span>
-                            <div class="progress-bar-wrap">
-                                <div class="progress-bar" role="progressbar" aria-valuenow="90" aria-valuemin="0"
-                                    aria-valuemax="100"></div>
-                            </div>
-                        </div>
-
-                        <div class="progress">
-                            <span class="skill">JavaScript <i class="val">75%</i></span>
-                            <div class="progress-bar-wrap">
-                                <div class="progress-bar" role="progressbar" aria-valuenow="75" aria-valuemin="0"
-                                    aria-valuemax="100"></div>
-                            </div>
-                        </div>
-
-                        <div class="progress">
-                            <span class="skill">Photoshop <i class="val">55%</i></span>
-                            <div class="progress-bar-wrap">
-                                <div class="progress-bar" role="progressbar" aria-valuenow="55" aria-valuemin="0"
-                                    aria-valuemax="100"></div>
-                            </div>
-                        </div>
-
-                    </div>
-
+                <div class="skills-content">
+                    <x-div-skills-section title="HTML" progressPercent="100%" progressValue="100" />
+                    <x-div-skills-section title="CSS" progressPercent="90%" progressValue="90" />
+                    <x-div-skills-section title="JavaScript" progressPercent="75%" progressValue="75" />
+                    <x-div-skills-section title="Photoshop" progressPercent="55%" progressValue="55" />
                 </div>
             </div>
-
+        </div>
         </div>
     </section><!-- End Skills Section -->
 @endsection

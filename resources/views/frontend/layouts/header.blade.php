@@ -58,7 +58,7 @@
                             <x-nav-bar liclass="" anchorclass="" link="{{ route('group.create') }}" lilabel="Group Add" iclass="" /></li>
                         </ul>
                     </li>
-                    <li><a class="getstarted scrollto" href="#">Button</a></li>
+                    <li><x-anchor-button link="#" class="getstarted scrollto" iclass="" title="Button" /></li>
                 </ul>
                 <i class="bi bi-list mobile-nav-toggle"></i>
             </nav><!-- .navbar -->
