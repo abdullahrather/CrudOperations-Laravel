@@ -59,6 +59,7 @@ Route::group(['prefix' => '/customer'], function () {
 
     Route::get('view', [CustomerController::class, 'view'])->name('customer.view');;
     Route::get('/', [CustomerController::class, 'index'])->name('customer.create');
+    Route::post('/', [CustomerController::class, 'store']);
     Route::get('delete/{id}', [CustomerController::class, 'delete'])->name('customer.delete');
     Route::get('forceDelete/{id}', [CustomerController::class, 'force_delete'])->name('customer.force.delete');
 
@@ -66,7 +67,6 @@ Route::group(['prefix' => '/customer'], function () {
     Route::get('trash', [customerController::class, 'trash'])->name('customer.trash');;
     Route::get('edit/{id}', [CustomerController::class, 'edit'])->name('customer.edit');
     Route::post('update/{id}', [CustomerController::class, 'update'])->name('customer.update');
-    Route::post('/', [CustomerController::class, 'store']);
 
     // Route::get('/customer', function () {
     //     $customers = Customer::all();
