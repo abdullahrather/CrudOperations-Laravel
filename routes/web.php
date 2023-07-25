@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AccountController;
 use App\Http\Controllers\CustomerController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\DemoController;
@@ -31,6 +32,7 @@ Route::get('/about-us', [AboutController::class, 'index']);
 Route::get('/portfolio', [PortfolioController::class, 'index']);
 Route::get('/services', [ServicesController::class, 'index']);
 Route::get('/team', [TeamController::class, 'index']);
+Route::get('/account', [AccountController::class, 'index']);
 
 Route::get('get-all-session', function () {
     $session = session()->all();
