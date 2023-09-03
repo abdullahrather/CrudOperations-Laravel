@@ -4,7 +4,7 @@ namespace App\View\Components;
 
 use Illuminate\View\Component;
 
-class div-services-section extends Component
+class DivServicesSection extends Component
 {
     /**
      * Create a new component instance.

@@ -59,7 +59,7 @@ Route::get('destroy-session', function () {
 
 Route::group(['prefix' => '/customer'], function () {
 
-    Route::get('view', [CustomerController::class, 'view'])->name('customer.view');;
+    Route::get('view', [CustomerController::class, 'view'])->name('customer.view');
     Route::get('/', [CustomerController::class, 'index'])->name('customer.create');
     Route::post('/', [CustomerController::class, 'store']);
     Route::get('delete/{id}', [CustomerController::class, 'delete'])->name('customer.delete');

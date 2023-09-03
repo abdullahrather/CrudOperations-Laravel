@@ -24,7 +24,7 @@ return new class extends Migration
             $table->boolean('status')->default(1);
             $table->integer('points')->default(0);
             $table->unsignedBigInteger('grp_id');
-            $table->foreign('grp_id')->references('grp_id')->on('group'); //foreign key constraint
+            $table->foreign('grp_id')->references('grp_id')->on('group'); // Update table name to 'groups'
             $table->timestamps();
         });
     }
